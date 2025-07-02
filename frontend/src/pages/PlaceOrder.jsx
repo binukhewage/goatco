@@ -4,7 +4,6 @@ import Title from "../components/Title";
 import payhereimg from "../assets/payhere.png";
 import axios from "axios";
 import { toast } from "react-toastify";
-import orderModel from "../../../backend/models/orderModel";
 
 const PlaceOrder = () => {
   const {
