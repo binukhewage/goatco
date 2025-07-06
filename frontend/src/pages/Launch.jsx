@@ -30,14 +30,13 @@ const Launch = () => {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12 relative">
       {/* Main Content */}
       <div className="w-full max-w-md mx-auto text-center px-4 sm:px-6">
-        {/* Logo with responsive sizing */}
+        {/* Logo */}
         <img 
           src={assets.glogo}
           alt="Luxury Brand" 
           className="w-20 sm:w-24 md:w-28 h-auto mx-auto mb-6 sm:mb-8"
         />
         
-        {/* Responsive typography */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-widest uppercase mb-2">
           Elevating Elegance
         </h1>
@@ -60,7 +59,7 @@ const Launch = () => {
         ) : (
           <form 
             onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row border border-gray-200 w-full max-w-xs mx-auto mb-6 sm:mb-8 focus-within:border-black transition-all"
+            className="w-full max-w-xs sm:max-w-md mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3"
           >
             <input
               type="email"
@@ -68,11 +67,11 @@ const Launch = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="flex-1 px-4 py-3 text-xs sm:text-sm outline-none"
+              className="w-full px-4 py-3 text-xs sm:text-sm outline-none border border-gray-200 focus:border-black transition-all"
             />
             <button 
               type="submit"
-              className="bg-black text-white px-4 py-3 text-xs sm:text-sm tracking-wider uppercase hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto bg-black text-white px-4 py-2 sm:py-3 text-xs sm:text-sm tracking-wider uppercase hover:bg-gray-800 transition-colors"
             >
               Notify Me
             </button>
@@ -90,7 +89,7 @@ const Launch = () => {
         </div>
       </div>
       
-      {/* Footer with responsive text size */}
+      {/* Footer */}
       <footer className="absolute bottom-4 left-0 right-0 text-center text-xxs xs:text-xs text-gray-500 tracking-widest px-2">
         © {new Date().getFullYear()} G.O.A.T. All rights reserved.
       </footer>
