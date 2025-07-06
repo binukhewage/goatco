@@ -6,14 +6,13 @@ import axios from 'axios';
 const Launch = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post('http://localhost:8080/api/subscribers/subscribe', {email: email,});
-
-      if (response.status === 201 || response.status === 200) {
+      const response = await axios.post(`${backendUrl}/api/subscribers/subscribe`, { email });
+      if (response.status === 200 || response.status === 201) {
         setSubscribed(true);
         setEmail('');
         setTimeout(() => setSubscribed(false), 3000);
