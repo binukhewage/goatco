@@ -80,10 +80,10 @@ const Launch = () => {
         
         {/* Social Links */}
         <div className="flex justify-center space-x-6 my-6 sm:my-8">
-          <a href="#" aria-label="Instagram" className="opacity-70 hover:opacity-100 transition-opacity">
+          <a href="https://www.instagram.com/_goatco/" aria-label="Instagram" className="opacity-70 hover:opacity-100 transition-opacity">
             <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
           </a>
-          <a href="#" aria-label="Facebook" className="opacity-70 hover:opacity-100 transition-opacity">
+          <a href="https://www.facebook.com/share/1AxAopvAmK/?mibextid=wwXIfr" aria-label="Facebook" className="opacity-70 hover:opacity-100 transition-opacity">
             <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
           </a>      
         </div>
