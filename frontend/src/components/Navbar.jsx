@@ -147,7 +147,7 @@ const Navbar = () => {
           
           <div className='mt-4 pt-4 border-t border-gray-200'>
             <div className='flex flex-col gap-3 text-gray-500'>
-              <p className='cursor-pointer hover:text-black flex items-center gap-2'>
+              <p onClick={()=> token ? null : navigate('/login')} className='cursor-pointer hover:text-black flex items-center gap-2'>
                 <UserRound size={18} /> My Profile
               </p>
               <p className='cursor-pointer hover:text-black flex items-center gap-2'>

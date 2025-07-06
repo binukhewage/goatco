@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
+import { assets } from "../assets/assets";
+
 
 const Product = () => {
   const { productId } = useParams();
@@ -10,6 +12,7 @@ const Product = () => {
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [showSizeChart, setShowSizeChart] = useState(false);
 
   useEffect(() => {
     const product = products.find(item => item._id === productId);
@@ -33,6 +36,32 @@ const Product = () => {
 
   return (
     <div className="border-t-2 border-gray-200 pt-10 transition-opacity ease-in duration-500 opacity-100">
+      {/* Size Chart Modal */}
+      {showSizeChart && (
+        <div className="fixed inset-0 bg-black bg-opacity-500 flex items-center justify-center z-50 p-4">
+          <div className="bg-white p-6 max-w-4xl max-h-[90vh] relative">
+            <button 
+              onClick={() => setShowSizeChart(false)}
+              className="absolute top-2 right-2 p-1"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <h2 className="text-xl font-bold mb-4">Size Chart</h2>
+            <div className="overflow-auto max-h-[80vh]">
+              {/* Replace with your actual size chart image */}
+              <img 
+                src={assets.sizechart} 
+                alt="Size Chart" 
+                className="w-full h-auto"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/800x800?text=Size+Chart+Not+Available';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/*-------------------------------- PRODUCT IMAGES --------------------------------*/}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         <div className="flex flex-col-reverse gap-3 sm:flex-row">
@@ -77,7 +106,9 @@ const Product = () => {
           {/* Size Selection */}
           {productSizes.length > 0 && (
             <div className="mt-5 flex flex-col gap-4 my-8">
-              <p>Select Size:</p>
+              <div className="flex justify-between items-center">
+                <p>Select Size:</p>
+              </div>
               <div className="flex gap-2">
                 {productSizes.map((item, index) => (
                   <button 
@@ -89,7 +120,15 @@ const Product = () => {
                   </button>
                 ))}
               </div>
+              <div>
+                <button 
+                  onClick={() => setShowSizeChart(true)}
+                  className="text-sm cursor-pointer underline text-gray-600 hover:text-black"
+                >
+                  Size Guide
+                </button></div>
             </div>
+            
           )}
 
           <button 
@@ -114,7 +153,7 @@ const Product = () => {
                 <div className="py-2 text-gray-600">
                   <ul className="list-disc pl-5 space-y-1">
                     <li>Oversized</li>
-                    <li>{productData.fabric}</li>
+                    <li>100% Cotton</li>
                   </ul>
                 </div>
               )}
