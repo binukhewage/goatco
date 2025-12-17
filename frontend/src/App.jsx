@@ -20,7 +20,7 @@ import Launch from './pages/Launch'
 
 const App = () => {
   const location = useLocation()
-  const isLaunchPage = location.pathname === '/'
+  const isLaunchPage = location.pathname === '/launch'
 
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -28,8 +28,8 @@ const App = () => {
       {!isLaunchPage && <SearchBar />}
 
       <Routes>
-        <Route path='/' element={<Launch />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/launch' element={<Launch />} />
+        <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
         <Route path='/collections' element={<Collections />} />
         <Route path='/contact' element={<Contact />} />
